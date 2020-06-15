@@ -1,0 +1,12 @@
+{
+    "extends": "../module-tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "../lib/ModuleA",
+        "sourceMap": true
+    },
+    "include": [
+        "index.ts",
+        "**/*.ts"
+    ],    
+}

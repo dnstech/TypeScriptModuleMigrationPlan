@@ -1,0 +1,6 @@
+{
+    "extends": "../module-tsconfig.json",
+    "include": [
+        "**/*"
+    ]
+}
