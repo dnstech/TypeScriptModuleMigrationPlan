@@ -3,10 +3,6 @@
     "compilerOptions": {
         "rootDir": ".",
         "outDir": "../lib/ModuleA",
-        "sourceMap": true
-    },
-    "include": [
-        "index.ts",
-        "**/*.ts"
-    ],    
+        "sourceMap": true 
+    }
 }

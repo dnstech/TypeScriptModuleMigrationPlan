@@ -12,7 +12,7 @@ The iBodyshop code base is becoming incredibly large and we need a way to migrat
 * File path independence across modules. If I move a file between `ModuleA/Scripts/TestPage.ts` to `ModuleA/TestPage/TestPage.ts` I should not have to update any other modules. That is, one modules project structure should not affect the reference paths of other modules. Everything should be exported under a single module namespace.
 * File concatenation of modules - multiple files in Debug (simpler debugging experience), with a single source file in Release (faster and more efficient download times). 
 * Reference to types rather than importing of module code. Our imports need to only light up at runtime.
-* No global list of modules or global shared libraries. This is getting too large and we are getting too many. We need a pay for play system where if we add a new dependency that is large, only the module that uses.
+* No global list of modules or global shared libraries. This is getting too large and we are getting too many. We need a pay for play system where if we add a new dependency that is large, only the module that uses it is downloaded at runtime.
 * Ability to use `require()` based modules from third parties. At the moment iBodyshop has no support for this system and we have to initialize global shared state.
 
 ## Nice to haves
@@ -26,12 +26,15 @@ The iBodyshop code base is becoming incredibly large and we need a way to migrat
 * TODO: Develop a process for either automated or manual migration of existing references.
 
 ## How to build this sample
-1. Make sure you have TypeScript 3.8 installed and in your path
-2. Run `tsc --build --watch'   That's it! You now have a live compiling project.
+1. Make sure you have TypeScript 3.8  (or later) installed and in your path using:<br>`npm install typescript -g`
+2. Change to the root solution folder and run:<br>`tsc --build --watch` 
+
+That's it! You now have a live compiling project.
 
 ## How to add a new module
 1. Create a module folder e.g. ModuleE
-2. Create a tsconfig.json file in that folder with the following content:
+2. Create a Global module exports file e.g. index.ts or Module.ts This is where you can republish exports for other modules to import, this isn't absolutely necessary but provides for a cleaner abstract.
+3. Create a tsconfig.json file in that folder with the following content:
 
 ```
 {
@@ -43,11 +46,17 @@ The iBodyshop code base is becoming incredibly large and we need a way to migrat
 }
 ```
 
-3. Create a Module.ts file with all of your service exports in it.
 
-## How to migrate an existing module
+## How to migrate existing code that uses reference paths
+* Add export to all referenced classes and namespaces
+* 
 
+# TODO
+1. Remove JS
+2. Update TypeScript to 3.9.4
+3. Add tsconfigs and rehome lib files.
 
 ## Interesting References
+* [TypeScript Project References](https://www.typescriptlang.org/docs/handbook/project-references.html)
 * [Javascript Tutorial - SystemJs](https://www.youtube.com/watch?v=AmdKF2UhFzw)
 * [GitHub - Project References Demo](https://github.com/RyanCavanaugh/project-references-demo)

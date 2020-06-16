@@ -1,6 +1,7 @@
 {
     "extends": "../module-tsconfig.json",
-    "include": [
-        "**/*"
-    ]
+    "compilerOptions": {
+        "rootDir": ".", 
+        "outDir": "../lib/ModuleC"
+    }
 }

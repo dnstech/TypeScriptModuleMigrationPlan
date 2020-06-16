@@ -2,7 +2,7 @@
     "extends": "../module-tsconfig.json",
     "compilerOptions": {
         "outDir": "../lib/ModuleB",
-        "rootDir": "."
+        "rootDir": "." 
     },
     "references": [
         {
