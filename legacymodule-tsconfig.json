@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/tsconfig.json",
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "lib",
+        "target": "es5",
+        "module": "None",
+        "moduleResolution": "Classic",
+        "strict": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "importsNotUsedAsValues": "remove",
+        "noImplicitReturns": false,
+        "noResolve": true,
+        "checkJs": false,
+        "esModuleInterop": false,
+        "forceConsistentCasingInFileNames": false,
+        "noFallthroughCasesInSwitch": true,
+        "composite": false
+    }
+}

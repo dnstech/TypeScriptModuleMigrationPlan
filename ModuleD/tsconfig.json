@@ -3,5 +3,8 @@
     "compilerOptions": {
         "rootDir": ".",
         "outDir": "../lib/ModuleD"
-    }
+    },
+    "references": [
+        { "path": "../ModuleB" }
+    ]
 }

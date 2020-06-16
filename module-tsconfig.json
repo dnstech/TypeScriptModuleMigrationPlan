@@ -1,9 +1,12 @@
 {
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/tsconfig.json",
     "compileOnSave": false,
     "compilerOptions": {
+        "baseUrl": "lib",
         "declaration": true,
         "target": "es5",
         "module": "amd",
+        "moduleResolution": "classic",
         "strict": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,

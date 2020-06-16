@@ -1,6 +1,7 @@
 {
     "files": [],
     "references": [
+        { "include": [ "./LegacyModule/**.ts" ] },
         { "path": "./ModuleA" },
         { "path": "./ModuleB" },
         { "path": "./ModuleC" },

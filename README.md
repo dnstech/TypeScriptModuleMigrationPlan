@@ -33,30 +33,50 @@ That's it! You now have a live compiling project.
 
 ## How to add a new module
 1. Create a module folder e.g. ModuleE
-2. Create a Global module exports file e.g. index.ts or Module.ts This is where you can republish exports for other modules to import, this isn't absolutely necessary but provides for a cleaner abstract.
-3. Create a tsconfig.json file in that folder with the following content:
+2. Create a tsconfig.json file in that folder with the following content:
 
 ```
 {
     "extends": "../module-tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".", 
+        "outDir": "../lib/ModuleE"
+    },
+}
+```
+3. (Optional) Create a global module exports file e.g. `Shared.ts`. This is where you can republish exports for other modules to import, this isn't absolutely necessary but provides for a cleaner abstraction from file paths and declares what is deemed internal vs public.
+
+4. Add folder path to root tsconfig.json
+
+
+## Migration of existing code that uses reference paths
+Legacy Modules and global shared libraries that use `/// <reference path=""/>` anywhere in their code must be included in the Solution tsconfig.json as an include path. 
+
+Example:
+```
+{
+    "files": [],
     "include": [
-        "Module.ts",
-        "**/*"
+        "./LegacyModule/**.ts"
+    ],
+    "references": [
+        ... (Migrated modules go here)
     ]
 }
 ```
 
+Essentially they remain part of the root project compilation until they have been migrated to use the import system, which allows for a progressive move to imports. Highly recommend reading [TypeScript Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html) for how to get more flexible with module resolution.
 
-## How to migrate existing code that uses reference paths
-* Add export to all referenced classes and namespaces
-* 
+1. All reference paths are updated to use `import` syntax.
 
 # TODO
-1. Remove JS
+1. Remove JS from code bose
 2. Update TypeScript to 3.9.4
 3. Add tsconfigs and rehome lib files.
+4. Migrate modules one a time.
 
 ## Interesting References
 * [TypeScript Project References](https://www.typescriptlang.org/docs/handbook/project-references.html)
+* [TypeScript Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html)
 * [Javascript Tutorial - SystemJs](https://www.youtube.com/watch?v=AmdKF2UhFzw)
 * [GitHub - Project References Demo](https://github.com/RyanCavanaugh/project-references-demo)
