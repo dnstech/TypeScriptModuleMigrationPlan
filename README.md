@@ -70,7 +70,7 @@ Essentially they remain part of the root project compilation until they have bee
 1. All reference paths are updated to use `import` syntax.
 
 # TODO
-1. Remove JS from code bose
+1. Remove JS from code base
 2. Update TypeScript to 3.9.4
 3. Add tsconfigs and rehome lib files.
 4. Migrate modules one a time.
